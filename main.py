@@ -1,14 +1,12 @@
-from macrosWriter import startWriterEvent
-from macrosExecutor import replayEvents
-
+# from macrosWriter import startWriterEvent
 # startWriterEvent()
 # import keyboard
 # keyboard.wait('f8')
 
 import os
 import json
-import time
 from typing import List, Dict, Tuple
+from macrosExecutor import replayEvents
 
 def parse_json_events(folder_path: str) -> Tuple[List[Dict], List[Dict]]:
     """Парсит JSON файлы в указанной папке и возвращает два списка ивентов: для клавиатуры и мыши."""
@@ -27,7 +25,7 @@ def parse_json_events(folder_path: str) -> Tuple[List[Dict], List[Dict]]:
                 mouse_events.append(event)
     
     return keyboard_events, mouse_events
-
-time.sleep(5)
-keyboard_events, mouse_events = parse_json_events("FearlessRunnerTest")
+import keyboard
+keyboard.wait('f7')
+keyboard_events, mouse_events = parse_json_events("TutorialTest")
 replayEvents(keyboard_events, mouse_events)
